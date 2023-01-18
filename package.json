@@ -11,7 +11,6 @@
   "author": "Daniel Westerling",
   "license": "ISC",
   "dependencies": {
-    "@slack/bolt": "^3.12.2",
-    "chatgpt": "^2.0.5"
+    "@slack/bolt": "^3.12.2"
   }
 }
