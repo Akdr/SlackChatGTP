@@ -1,8 +1,7 @@
-//const { App, LogLevel } = require('@slack/bolt');
 import pkg from "@slack/bolt";
 const {App, LogLevel } = pkg;
 const clientOptions = {};
-import {askAI, generateUUID} from "./fetch.js";
+import {askAI } from "./fetch.js";
 
 const app = new App({
     // receiver: socketModeReceiver,
