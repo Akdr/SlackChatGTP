@@ -1,4 +1,4 @@
-import {Configuration} from "openai/configuration.js";
+import {Configuration, OpenAIApi } from "openai"
 
 export function askAI(question){
 
@@ -16,7 +16,7 @@ export function askAI(question){
         "content": question
     });
 
-    const openAI = new OpenAI(configuration);
+    const openAI = new OpenAIApi(configuration);
 
     const generate = async (messages) => {
         const response = await openAI.createChatCompletion({
@@ -24,13 +24,8 @@ export function askAI(question){
             messages: messages,
             temperature: 0.4,
         });
-
-        if(!response || !response.data.choices || !response.data.choices[0] || !response.data.choices[0].message || !response.data.choices[0].message.content){
-            return "No response from OpenAI";
-        }
-
-
-        return response.data.choices[0].message.content;
+        console.log(response.data.choices[0].message.content);
+        return response.data.choices[0].message.content|| "No response from OpenAI";
     }
 
     return generate(messages);

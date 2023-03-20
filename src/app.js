@@ -1,7 +1,7 @@
 import pkg from "@slack/bolt";
 const {App, LogLevel } = pkg;
 const clientOptions = {};
-import {askAI } from "./fetch.js";
+import { askAI } from "./fetch.js";
 
 const app = new App({
     // receiver: socketModeReceiver,
@@ -72,8 +72,8 @@ app.command('/askai', async ({command, ack, say}) => {
 
     // send a message and wait for the response
     const response = await askAI(
-        `${command.text}`, generateUUID()
-    ).then((response) => response.reply).catch((error) => 'Error: ' + error);
+        `${command.text}`
+    ).then((response) => response).catch((error) => 'Error: ' + error);
 
     //await say(response);
     await say({
